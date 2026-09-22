@@ -24,6 +24,7 @@
                         <th>ZIP Code</th>
                         <th>City</th>
                         <th>State</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -33,6 +34,21 @@
                             <td>{{ item.zipCode }}</td>
                             <td>{{ item.city }}</td>
                             <td>{{ item.state }}</td>
+                            <td class="actions">
+                                <button
+                                    type="button"
+                                    class="btn-update"
+                                    (click)="updatePostOffice(item.zipCode)">
+                                    Update
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn-delete"
+                                    (click)="deletePostOffice(item.zipCode)">
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     }
                 </tbody>

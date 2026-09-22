@@ -80,3 +80,37 @@ tbody tr:hover {
     text-align: center;
     color: #6b7280;
 }
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-update,
+.btn-delete {
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-update {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-update:hover {
+    background: #1d4ed8;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #b91c1c;
+}

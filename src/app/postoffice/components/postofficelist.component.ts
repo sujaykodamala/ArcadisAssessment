@@ -1,6 +1,7 @@
 import {  Component, signal } from "@angular/core";
 import { PostOfficeService } from "../services/postoffice.service";
 import { PostOffice } from "../models/postoffice";
+import { Router } from '@angular/router';
 
 @Component({
     selector:'postoffice-list',
@@ -13,22 +14,38 @@ import { PostOffice } from "../models/postoffice";
 export class PostOfficeListComponent
 {
     postOfficeList = signal<PostOffice[]>([]);
-    private postOfficeService: PostOfficeService;
-    constructor(postOfficeService: PostOfficeService)
+    constructor(private postOfficeService: PostOfficeService, private router: Router)
     {
-        this.postOfficeService = postOfficeService;
+
     }
 
     ngOnInit(){
+        this.loadPostOffices();
+    }
+
+    updatePostOffice(zipCode: string): void {
+         this.router.navigate(['/postoffices/update', zipCode]);
+    }
+
+    deletePostOffice(zipCode: string): void {
+        this.postOfficeService.deletePostOffice(zipCode).subscribe({
+            next: () => {
+                this.loadPostOffices();
+            },
+            error: () =>{
+                
+            }
+        });
+    }
+
+    loadPostOffices() : void
+    {
         this.postOfficeService.getPostOffices().subscribe(data =>
         {
             this.postOfficeList.set(data),
             console.log(data);
          });
     }
-    
-    removePostOffice(): void{
 
-    }
 }
 
