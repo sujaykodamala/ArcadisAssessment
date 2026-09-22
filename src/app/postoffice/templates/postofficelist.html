@@ -1,0 +1,49 @@
+<div class="post-office-page">
+
+    <div class="post-office-header">
+        <div class="logo">📮</div>
+
+        <div>
+            <h1>Post Office Management</h1>
+            <p>Manage registered post offices</p>
+        </div>
+    </div>
+
+    <div class="post-office-card">
+
+        <div class="post-office-summary">
+            <span>Total Post Offices</span>
+            <strong>{{ postOfficeList().length }}</strong>
+        </div>
+
+        @if (postOfficeList().length > 0) {
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ZIP Code</th>
+                        <th>City</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (item of postOfficeList(); track item.zipCode) {
+                        <tr>
+                            <td>{{ item.zipCode }}</td>
+                            <td>{{ item.city }}</td>
+                            <td>{{ item.state }}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        } @else {
+            <div class="empty-state">
+                No post offices exist
+            </div>
+        }
+
+    </div>
+
+</div>

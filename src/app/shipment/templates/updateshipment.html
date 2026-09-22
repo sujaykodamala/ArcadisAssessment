@@ -1,0 +1,79 @@
+<div class="shipment-page">
+
+    <div class="shipment-header">
+        <div class="logo">📦</div>
+
+        <div>
+            <h1>Update Shipment</h1>
+            <p>Update shipment details and status</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+
+        <form [formGroup]="updateForm" (ngSubmit)="update()">
+
+            <div class="form-group">
+                <label for="origin">Origin</label>
+                <input
+                    id="origin"
+                    type="text"
+                    formControlName="origin"
+                    placeholder="Enter origin ZIP code">
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input
+                    id="destination"
+                    type="text"
+                    formControlName="destination"
+                    placeholder="Enter destination ZIP code">
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select id="type" formControlName="type">
+                    @for (type of shipmentTypes; track type) {
+                        <option [ngValue]="type">
+                            {{ type }}
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input
+                    id="weight"
+                    type="number"
+                    formControlName="weight"
+                    placeholder="Enter weight"
+                    step="0.01"
+                    min="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" formControlName="status">
+                    @for (status of shipmentStatuses; track status) {
+                        <option [ngValue]="status">
+                            {{ status }}
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button
+                    type="submit"
+                    [disabled]="updateForm.invalid">
+                    Update Shipment
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

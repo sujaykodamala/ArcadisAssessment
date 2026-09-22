@@ -1,0 +1,82 @@
+.post-office-page {
+    min-height: 100vh;
+    padding: 40px 24px;
+    background: #f5f7fa;
+}
+
+.post-office-header {
+    width: min(900px, 100%);
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1f2937;
+    font-size: 28px;
+}
+
+.post-office-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #1f2937;
+}
+
+.post-office-header p {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.post-office-card {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.post-office-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #4b5563;
+}
+
+.post-office-summary strong {
+    color: #1f2937;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 13px;
+    text-align: left;
+    background: #f3f4f6;
+    color: #374151;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+.empty-state {
+    padding: 30px;
+    text-align: center;
+    color: #6b7280;
+}

@@ -1,0 +1,88 @@
+<div class="shipment-page">
+
+    <div class="shipment-header">
+        <div class="logo">📦</div>
+
+        <div>
+            <h1>Create Shipment</h1>
+            <p>Enter the details for a new shipment</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+
+        <form [formGroup]="createForm" (ngSubmit)="save()">
+
+            <div class="form-group">
+                <label for="origin">Origin</label>
+                <input
+                    id="origin"
+                    type="text"
+                    formControlName="origin"
+                    placeholder="Enter origin ZIP code">
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input
+                    id="destination"
+                    type="text"
+                    formControlName="destination"
+                    placeholder="Enter destination ZIP code">
+            </div>
+
+            <div class="form-group">
+                <label for="shipmentType">Type</label>
+                <select
+                    id="shipmentType"
+                    formControlName="shipmentType">
+
+                    <option [ngValue]="null">
+                        Select type
+                    </option>
+
+                    @for (type of shipmentTypes; track type) {
+                        <option [ngValue]="type">
+                            {{ type }}
+                        </option>
+                    }
+
+                </select>
+            </div>
+
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input
+                id="weight"
+                type="number"
+                formControlName="weight"
+                placeholder="Enter weight"
+                step="0.01"
+                min="0.01">
+        </div>
+
+            <div class="form-actions">
+                <button
+                    type="submit"
+                    [disabled]="createForm.invalid">
+                    Create Shipment
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@if (showSuccess()) {
+    <div class="success-toast">
+        ✓ Shipment created successfully
+    </div>
+}
+
+@if (showError()) {
+    <div class="error-toast">
+        ✕ Failed to create shipment. Reason {{failureReason}}
+    </div>
+}

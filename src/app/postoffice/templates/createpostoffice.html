@@ -1,0 +1,55 @@
+<div class="post-office-page">
+
+    <div class="post-office-header">
+        <div class="logo">📮</div>
+
+        <div>
+            <h1>Create Post Office</h1>
+            <p>Add a new post office to the system</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+
+        <form [formGroup]="createForm" (ngSubmit)="save()">
+
+            <div class="form-group">
+                <label for="zipCode">ZIP Code</label>
+                <input
+                    id="zipCode"
+                    type="text"
+                    formControlName="zipCode"
+                    placeholder="Enter ZIP code">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input
+                    id="city"
+                    type="text"
+                    formControlName="city"
+                    placeholder="Enter city">
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input
+                    id="state"
+                    type="text"
+                    formControlName="state"
+                    placeholder="Enter state">
+            </div>
+
+            <div class="form-actions">
+                <button
+                    type="submit"
+                    [disabled]="createForm.invalid">
+                    Create Post Office
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

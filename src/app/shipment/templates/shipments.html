@@ -1,0 +1,135 @@
+<div class="shipment-page">
+
+    <div class="shipment-header">
+        <div class="logo">📦</div>
+        <div>
+            <h1>Shipment Management</h1>
+            <p>Track and manage shipments</p>
+        </div>
+    </div>
+
+    <div class="shipment-card">
+
+        <div class="filters">
+            <input
+                type="number"
+                placeholder="Shipment ID"
+                min="1"
+                [(ngModel)]="filterId">
+
+            <select [(ngModel)]="filterStatus">
+                <option value="">All Statuses</option>
+
+                @for (status of shipmentStatuses; track status) {
+                    <option [value]="status">
+                        {{ status }}
+                    </option>
+                }
+            </select>
+
+            <input
+                type="text"
+                placeholder="Post Office"
+                [(ngModel)]="filterZipCode">
+
+            <input
+                type="number"
+                placeholder="Weight (kg)"
+                min="0.01"
+                step="0.01"
+                [(ngModel)]="filterWeight">
+
+            <button type="button" (click)="applyFilter()">
+                Filter
+            </button>
+
+        </div>
+
+        
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Type</th>
+                        <th>Weight (kg)</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Actions </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @for (shipment of shipments(); track shipment.id) {
+
+                        <tr>
+                            <td>{{ shipment.id }}</td>
+                            <td>{{ shipment.origin }}</td>
+                            <td>{{ shipment.destination }}</td>
+                            <td>{{ shipment.type }}</td>
+                            <td>{{ shipment.weight | number:'1.2-2' }}</td>
+                            <td>{{ shipment.category }}</td>
+                            <td>{{ shipment.status }}</td>
+                            <td class="actions">
+                                <button
+                                    type="button"
+                                    class="btn-update"
+                                    (click)="updateShipment(shipment.id)">
+                                    Update
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn-remove"
+                                    (click)="removeShipment(shipment.id)">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+            @if (shipments().length === 0) {
+                <div class="empty-state">
+                    There are no shipments to display.
+                </div>
+            }
+
+        </div>
+
+
+        <div class="pagination">
+
+            <button
+                type="button"
+                (click)="prevClicked()"
+                [disabled]="isPrevDisabled">
+                Prev
+            </button>
+
+            <span>
+                Page {{ page }}
+            </span>
+
+            <button
+                type="button"
+                (click)="nextClicked()"
+                [disabled]="isNextDisabled">
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
