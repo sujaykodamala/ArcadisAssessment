@@ -1,7 +1,5 @@
 # ShipmentManagementSystem
 
-# Shipment Management - Frontend
-
 Angular frontend for the Shipment Management application.
 
 ## Overview
