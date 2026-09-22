@@ -1,59 +1,57 @@
 # ShipmentManagementSystem
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+# Shipment Management - Frontend
 
-## Development server
+Angular frontend for the Shipment Management application.
 
-To start a local development server, run:
+## Overview
 
-```bash
-ng serve
-```
+This application provides a UI for managing post offices and shipments.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The application communicates with a REST API provided by the backend repository.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- View post offices
+- Create post offices
+- Update post offices
+- Delete post offices
+- View shipments
+- Create shipments
+- Update shipments
+- Delete shipments
+- Filter shipments by:
+  - Shipment ID
+  - Status
+  - Post Office / ZIP code
+  - Weight
+- Shipment pagination
 
-```bash
-ng generate component component-name
-```
+## Technology Stack
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Angular
+- TypeScript
+- HTML
+- CSS
+- Angular Reactive Forms
+- Angular HttpClient
 
-```bash
-ng generate --help
-```
+## Project Structure
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+src/app/
+├── constants/
+├── postoffice/
+│   ├── components/
+│   ├── models/
+│   ├── services/
+│   ├── styles/
+│   └── templates/
+├── shipment/
+│   ├── components/
+│   ├── models/
+│   ├── services/
+│   ├── styles/
+│   ├── templates/
+│   └── utils/
+└── app.routes.ts
