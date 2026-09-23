@@ -5,16 +5,15 @@ import { Router } from '@angular/router';
 
 @Component({
     selector:'postoffice-list',
-    providers: [PostOfficeService],
     templateUrl: '../templates/postofficelist.html',
     styleUrl: '../styles/postofficelist.css'
-
 })
 
 export class PostOfficeListComponent
 {
     postOfficeList = signal<PostOffice[]>([]);
-    constructor(private postOfficeService: PostOfficeService, private router: Router)
+    
+    constructor(private readonly postOfficeService: PostOfficeService, private readonly router: Router)
     {
 
     }

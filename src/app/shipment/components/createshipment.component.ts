@@ -8,11 +8,9 @@ import {
 } from "@angular/forms";
 import { ShipmentType } from "../models/shipmenttype";
 import { CreateShipmentRequest } from "../models/createshipmentrequest";
-import { ShipmentCategory } from "../models/shipmentcategory";
 import { getShipmentCategory } from "../utils/shipment-category.utils";
 
 @Component({
-    providers: [ShipmentService],
     selector: 'create-shipment',
     imports: [ReactiveFormsModule],
     templateUrl: '../templates/createshipment.html',
@@ -20,11 +18,12 @@ import { getShipmentCategory } from "../utils/shipment-category.utils";
 })
 export class CreateShipmentComponent {
 
-    private shipmentService: ShipmentService;
 
-    constructor(shipmentService: ShipmentService) {
-        this.shipmentService = shipmentService;
+    constructor(private readonly shipmentService: ShipmentService)
+    {
+
     }
+    
     showSuccess = signal(false);
     showError = signal(false);
     ShipmentType = ShipmentType;

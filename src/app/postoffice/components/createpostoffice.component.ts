@@ -6,18 +6,16 @@ import { PostOffice } from "../models/postoffice";
 @Component({
     selector: 'create-postoffice',
     templateUrl: '../templates/createpostoffice.html',
-    providers: [PostOfficeService],
     imports: [ReactiveFormsModule],
     styleUrl: '../styles/createpostoffice.css'
 })
 
 export class CreatePostOfficeComponent
 {
-    private postOfficeService: PostOfficeService;
 
-    constructor(postOfficeService: PostOfficeService)
+    constructor(private readonly postOfficeService: PostOfficeService)
     {
-        this.postOfficeService = postOfficeService;
+        
     }
 
     createForm= new FormGroup({
@@ -38,4 +36,6 @@ export class CreatePostOfficeComponent
                    .subscribe(data => { 
                    });
     }
+
+    
 }

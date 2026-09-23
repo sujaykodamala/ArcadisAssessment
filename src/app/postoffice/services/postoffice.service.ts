@@ -34,4 +34,10 @@ export class PostOfficeService
     {
         return this.httpClient.put<PostOffice>(`${API_URLS.POST_OFFICES}/${zipCode}`, request);
     }
+
+    deletePostOffice(zipCode: string): Observable<void> {
+        return this.httpClient.delete<void>(
+            `${API_URLS.POST_OFFICES}/${zipCode}`
+        );
+    }
 }

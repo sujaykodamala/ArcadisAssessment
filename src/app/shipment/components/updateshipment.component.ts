@@ -14,7 +14,12 @@ import { getShipmentCategory } from "../utils/shipment-category.utils";
     templateUrl: "../templates/updateshipment.html",
     styleUrl: '../styles/updateshipment.css'
 })
-export class ShipmentUpdateComponent implements OnInit {
+export class ShipmentUpdateComponent implements OnInit 
+{
+
+    constructor(private readonly shipmentService: ShipmentService){
+        
+    }
 
     @Input()
     id!: number;
@@ -38,10 +43,6 @@ export class ShipmentUpdateComponent implements OnInit {
             Validators.required
         )
     });
-
-    constructor(
-        private readonly shipmentService: ShipmentService
-    ) {}
 
     ngOnInit(): void {
         this.shipmentService

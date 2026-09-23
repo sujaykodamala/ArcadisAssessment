@@ -10,7 +10,6 @@ import { DecimalPipe } from "@angular/common";
 import { Router } from '@angular/router';
 
 @Component({
-    providers: [ShipmentService],
     templateUrl: '../templates/shipments.html',
     selector: 'shipment-list',
     imports: [FormsModule, DecimalPipe],
@@ -20,12 +19,9 @@ import { Router } from '@angular/router';
 export class ShipmentListComponent
 {
 
-
-    private shipmentService: ShipmentService;
-
-    constructor(shipmentService: ShipmentService, private router: Router)
+    constructor(private readonly shipmentService: ShipmentService, private readonly router: Router)
     {
-        this.shipmentService = shipmentService;
+
     }
 
     shipmentTypes = Object.values(ShipmentType);
